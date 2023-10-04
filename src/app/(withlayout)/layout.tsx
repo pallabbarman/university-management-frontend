@@ -1,7 +1,7 @@
-import React, { ReactNode } from 'react';
-import { Layout } from 'antd';
-import Sidebar from '@/components/ui/Sidebar';
 import Contents from '@/components/ui/Contents';
+import Sidebar from '@/components/ui/Sidebar';
+import { Layout } from 'antd';
+import { ReactNode } from 'react';
 
 interface DashboardLayoutProps {
     children: ReactNode;
