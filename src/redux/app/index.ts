@@ -3,7 +3,7 @@ import rootReducer from './rootReducer';
 
 const store = configureStore({
     reducer: rootReducer,
-    // devTools: import.meta.env.DEV,
+    devTools: process.env.NODE_ENV != 'production',
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(),
 });
 
