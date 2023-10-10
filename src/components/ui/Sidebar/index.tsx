@@ -1,7 +1,6 @@
 'use client';
 
 import { SidebarItems } from '@/constants/SidebarItems';
-import { USER_ROLE } from '@/constants/role';
 import { getUserInfo } from '@/services/auth';
 import { Layout, Menu } from 'antd';
 import { useState } from 'react';

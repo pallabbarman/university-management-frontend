@@ -1,6 +1,5 @@
 'use client';
-import BreadCrumbs from '@/components/BreadCrumbs';
-import { USER_ROLE } from '@/constants/role';
+
 import { Layout, theme } from 'antd';
 import { ReactNode } from 'react';
 import Header from '../Header';
@@ -16,25 +15,11 @@ const Contents = ({ children }: ContentsProps) => {
         token: { colorBgContainer },
     } = theme.useToken();
 
-    const base = USER_ROLE.ADMIN;
-
     return (
         <Content
             style={{ minHeight: '100vh', color: 'black', margin: '0 1rem' }}
         >
             <Header />
-            <BreadCrumbs
-                items={[
-                    {
-                        label: `${base}`,
-                        link: `/${base}`,
-                    },
-                    {
-                        label: 'student',
-                        link: `/${base}/student`,
-                    },
-                ]}
-            />
             <div
                 style={{
                     padding: 24,

@@ -1,7 +1,7 @@
-export default function Home() {
-    return (
-        <div>
-            <h1>Hello World!</h1>
-        </div>
-    );
-}
+import { redirect } from 'next/navigation';
+
+const HomePage = () => {
+    return redirect('/profile');
+};
+
+export default HomePage;
