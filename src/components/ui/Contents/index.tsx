@@ -3,6 +3,7 @@ import BreadCrumbs from '@/components/BreadCrumbs';
 import { USER_ROLE } from '@/constants/role';
 import { Layout, theme } from 'antd';
 import { ReactNode } from 'react';
+import Header from '../Header';
 
 const { Content } = Layout;
 
@@ -21,6 +22,7 @@ const Contents = ({ children }: ContentsProps) => {
         <Content
             style={{ minHeight: '100vh', color: 'black', margin: '0 1rem' }}
         >
+            <Header />
             <BreadCrumbs
                 items={[
                     {

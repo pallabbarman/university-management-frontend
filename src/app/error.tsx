@@ -1,12 +1,23 @@
 'use client';
 
+import { Button, Result, Row } from 'antd';
+import Link from 'next/link';
 import React from 'react';
 
 const ErrorPage = () => {
     return (
-        <div>
-            <h1>Something went wrong!</h1>
-        </div>
+        <Row justify="center" align="middle" style={{ minHeight: '100vh' }}>
+            <Result
+                status="500"
+                title="500"
+                subTitle="Sorry, something went wrong."
+                extra={
+                    <Link href="/">
+                        <Button type="primary">Back Home</Button>
+                    </Link>
+                }
+            />
+        </Row>
     );
 };
 

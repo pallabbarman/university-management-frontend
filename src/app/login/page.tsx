@@ -7,6 +7,7 @@ import { useUserLoginMutation } from '@/redux/features/auth';
 import { storeUserInfo } from '@/services/auth';
 import { Button, Col, Row } from 'antd';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { SubmitHandler } from 'react-hook-form';
 
 interface LoginPageProps {
@@ -16,11 +17,14 @@ interface LoginPageProps {
 
 const LoginPage = () => {
     const [userLogin] = useUserLoginMutation();
+    const router = useRouter();
     const onSubmit: SubmitHandler<LoginPageProps> = async (data) => {
         try {
             const res = await userLogin({ ...data }).unwrap();
+            if (res?.accessToken) {
+                router.push('/profile');
+            }
             storeUserInfo({ accessToken: res?.data?.accessToken });
-            console.log(res);
         } catch (err) {}
     };
 

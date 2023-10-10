@@ -23,3 +23,7 @@ export const isLoggedIn = () => {
 
     return !!authToken;
 };
+
+export const logOut = (key: string) => {
+    return localStorage.removeItem(key);
+};
