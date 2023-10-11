@@ -12,6 +12,7 @@ export const genderOptions = [
         value: 'others',
     },
 ];
+
 export const departmentOptions = [
     {
         label: 'HR',
@@ -72,6 +73,7 @@ export const facultyOptions = [
         value: 'Faculty of science and engineering',
     },
 ];
+
 export const acDepartmentOptions = [
     {
         label: 'CSE',
@@ -82,6 +84,7 @@ export const acDepartmentOptions = [
         value: 'software engineering',
     },
 ];
+
 export const acSemesterOptions = [
     {
         label: 'Fall 2023',

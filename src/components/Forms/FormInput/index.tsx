@@ -1,6 +1,7 @@
 'use client';
 
-import { Col, Input, Row } from 'antd';
+import { getErrorMessageByPropertyName } from '@/utils/schema-validator';
+import { Alert, Col, Input, Row } from 'antd';
 import { Controller, useFormContext } from 'react-hook-form';
 
 interface FormInputProps {
@@ -24,7 +25,11 @@ const FormInput = ({
     validation,
     label,
 }: FormInputProps) => {
-    const { control } = useFormContext();
+    const {
+        control,
+        formState: { errors },
+    } = useFormContext();
+    const errorMessage = getErrorMessageByPropertyName(errors, name);
 
     return (
         <Row style={{ flexDirection: 'column' }} gutter={[8, 8]}>
@@ -53,6 +58,7 @@ const FormInput = ({
                         )
                     }
                 />
+                <Alert message={errorMessage} type="error" />
             </Col>
         </Row>
     );

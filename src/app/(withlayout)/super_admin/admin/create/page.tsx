@@ -1,16 +1,19 @@
 'use client';
 
-import FormDatePicker from '@/components/FormDatePicker';
+import FormDatePicker from '@/components/Forms/FormDatePicker';
 import Form from '@/components/Forms/Form';
 import FormInput from '@/components/Forms/FormInput';
 import FormSelectField from '@/components/Forms/FormSelectField';
 import FormTextArea from '@/components/Forms/FormTextArea';
+import UploadImage from '@/components/ui/UploadImage';
 import {
     bloodGroupOptions,
     departmentOptions,
     genderOptions,
 } from '@/constants/global';
 import { Button, Col, Row } from 'antd';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { adminSchema } from '@/schemas/admin';
 
 const CreateAdminPage = () => {
     const onSubmit = (data: any) => {
@@ -19,7 +22,7 @@ const CreateAdminPage = () => {
 
     return (
         <div>
-            <Form submitHandler={onSubmit}>
+            <Form submitHandler={onSubmit} resolver={yupResolver(adminSchema)}>
                 <div
                     style={{
                         border: '1px solid #d9d9d9',
@@ -130,7 +133,7 @@ const CreateAdminPage = () => {
                                 marginBottom: '10px',
                             }}
                         >
-                            {/* <UploadImage /> */}
+                            <UploadImage />
                             upload
                         </Col>
                     </Row>
@@ -245,7 +248,6 @@ const CreateAdminPage = () => {
                                 rows={4}
                             />
                         </Col>
-
                         <Col span={12} style={{ margin: '10px 0' }}>
                             <FormTextArea
                                 name="admin.permanentAddress"

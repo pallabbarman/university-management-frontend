@@ -3,7 +3,7 @@
 import loginImage from '@/assets/login.png';
 import { useUserLoginMutation } from '@/redux/features/auth';
 import { storeUserInfo } from '@/services/auth';
-import { Button, Col, Row } from 'antd';
+import { Button, Col, Row, message } from 'antd';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { SubmitHandler } from 'react-hook-form';
@@ -23,6 +23,7 @@ const Login = () => {
             const res = await userLogin({ ...data }).unwrap();
             if (res?.accessToken) {
                 router.push('/profile');
+                message.success('User logged in successfully!');
             }
             storeUserInfo({ accessToken: res?.data?.accessToken });
         } catch (err) {}
